@@ -13,17 +13,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('maven4gradle'){
                   sh 'mvn clean package'  // Run Maven build
-                }
             }
         }
 
         stage('Test') {
             steps {
-                  dir('maven4gradle'){
                       sh 'mvn test'  // Run unit tests
-                }
             }
         }
 
