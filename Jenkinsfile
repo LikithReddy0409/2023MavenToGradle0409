@@ -11,14 +11,11 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                
-                  sh 'mvn clean package'  // Run Maven build
-                
-            }
-        }
-
+      stage('Build') {
+    steps {
+        sh 'mvn clean package -DskipTests'
+    }
+}
         stage('Test') {
             steps {
           
