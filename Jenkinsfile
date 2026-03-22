@@ -7,25 +7,31 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/LikithReddy0409/2023MavenToGradle0409.git'
+                git branch: 'main', url: ''
             }
         }
 
         stage('Build') {
             steps {
+                
                   sh 'mvn clean package'  // Run Maven build
+                
             }
         }
 
         stage('Test') {
             steps {
+          
                       sh 'mvn test'  // Run unit tests
+                
             }
         }
 
         stage('Run Application') {
             steps {
-                    sh 'java -jar target/2023MavenToGradle0409-1.0-SNAPSHOT.jar'
+            
+                    sh 'mvn exec:java -Dexec.mainClass="com.example.App"'
+                
             }
         }
 
